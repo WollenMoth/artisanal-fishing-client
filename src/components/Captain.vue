@@ -47,8 +47,10 @@
     <button type="submit" class="btn btn-info mr-2" @click="updateCaptain">
       Actualizar
     </button>
-    <p>{{ message }}</p>
-    <div v-if="error" class="alert alert-danger" role="alert">
+    <div v-if="message" class="alert alert-success mt-3" role="alert">
+      {{ message }}
+    </div>
+    <div v-if="error" class="alert alert-danger mt-3" role="alert">
       {{ error }}
     </div>
   </div>
