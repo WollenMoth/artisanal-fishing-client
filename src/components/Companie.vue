@@ -1,10 +1,13 @@
 <template>
-<h4>Compañias</h4>
+  <h4>Compañias</h4>
   <div v-if="currentCompanie" class="edit-form">
     <form>
       <div class="form-group">
         <label for="title">Nombre</label>
-        <input type="text" class="form-control" id="title"
+        <input
+          type="text"
+          class="form-control"
+          id="title"
           v-model="currentCompanie.name"
         />
       </div>
@@ -19,7 +22,7 @@
   </div>
   <div v-else>
     <br />
-    <p> Selecciona una Compañia. </p>
+    <p>Selecciona una Compañia.</p>
   </div>
 </template>
 <script>
@@ -29,44 +32,44 @@ export default {
   data() {
     return {
       currentCompanie: null,
-      message: ''
+      message: "",
     };
   },
   methods: {
     getCompanie(id) {
       CompanieService.get(id)
-        .then(response => {
+        .then((response) => {
           this.currentCompanie = response.data;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
     deleteCompanie() {
       CompanieService.delete(this.currentCompanie.id)
-      .then(response => {
-        console.log(response.data);
-        this.$router.push({ name: "companies" });
-      })
-      .catch(e => {
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push({ name: "companies" });
+        })
+        .catch((e) => {
           console.log(e);
-      });
+        });
     },
     updateCompanie() {
       CompanieService.update(this.currentCompanie.id, this.currentCompanie)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
-          this.message = 'Se actualizó correctamente';
+          this.message = "Se actualizó correctamente";
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
-    }
+    },
   },
   mounted() {
-    this.message = '';
+    this.message = "";
     this.getCompanie(this.$route.params.id);
-  }
+  },
 };
 </script>
 

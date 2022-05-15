@@ -2,10 +2,9 @@
   <div id="app">
     <nav class="navbar navbar-expand navbar-light bg-white">
       <router-link to="/" class="navbar-brand">
-        <img src="./assets/LogoApp.png" alt="" width="250">
+        <img src="./assets/LogoApp.png" alt="" width="250" />
       </router-link>
-     
-      
+
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/captains" class="nav-link">Capitanes</router-link>
@@ -25,6 +24,6 @@
 </template>
 <script>
 export default {
-  name: "app"
+  name: "app",
 };
 </script>

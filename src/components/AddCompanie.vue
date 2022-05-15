@@ -1,7 +1,7 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-    <h3>Nueva Compañia</h3>
+      <h3>Nueva Compañia</h3>
       <div class="form-group">
         <label for="title">Nombre </label>
         <input
@@ -16,7 +16,7 @@
       <button @click="saveCompanie" class="btn btn-success">Agregar</button>
     </div>
     <div v-else>
-      <h4> Compañia creada exitosamente. </h4>
+      <h4>Compañia creada exitosamente.</h4>
       <button class="btn btn-success" @click="newCompanie">Add</button>
     </div>
   </div>
@@ -30,29 +30,29 @@ export default {
     return {
       companie: {
         id: null,
-        name: ""
+        name: "",
       },
-      submitted: false
+      submitted: false,
     };
   },
   methods: {
     saveCompanie() {
       var data = {
-        name: this.companie.name
+        name: this.companie.name,
       };
       CompanieService.create(data)
-        .then(response => {
+        .then((response) => {
           this.companie.id = response.data.id;
           this.submitted = true;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
     newCompanie() {
       this.submitted = false;
       this.companie = {};
-    }
-  }
+    },
+  },
 };
 </script>

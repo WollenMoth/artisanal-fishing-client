@@ -1,7 +1,7 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-    <h3>Nuevo Capitán</h3>
+      <h3>Nuevo Capitán</h3>
       <div class="form-group">
         <label for="title">Nombre </label>
         <input
@@ -49,7 +49,7 @@
       <button @click="saveCaptain" class="btn btn-success">Agregar</button>
     </div>
     <div v-else>
-      <h4> Capitán creado exitosamente. </h4>
+      <h4>Capitán creado exitosamente.</h4>
       <button class="btn btn-success" @click="newCaptain">Add</button>
     </div>
   </div>
@@ -66,9 +66,9 @@ export default {
         name: "",
         username: "",
         country: "",
-        state:""
+        state: "",
       },
-      submitted: false
+      submitted: false,
     };
   },
   methods: {
@@ -77,21 +77,21 @@ export default {
         name: this.captain.name,
         email: this.captain.email,
         country: this.captain.country,
-        state: this.captain.state
+        state: this.captain.state,
       };
       CaptainService.create(data)
-        .then(response => {
+        .then((response) => {
           this.captain.id = response.data.id;
           this.submitted = true;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
     newCaptain() {
       this.submitted = false;
       this.captain = {};
-    }
-  }
+    },
+  },
 };
 </script>

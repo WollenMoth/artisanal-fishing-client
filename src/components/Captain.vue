@@ -1,28 +1,42 @@
 <template>
-<h4>Capitán</h4>
+  <h4>Capitán</h4>
   <div v-if="currentCaptain" class="edit-form">
     <form>
       <div class="form-group">
         <label for="title">Nombre</label>
-        <input type="text" disabled class="form-control" id="title"
+        <input
+          type="text"
+          disabled
+          class="form-control"
+          id="title"
           v-model="currentCaptain.name"
         />
       </div>
       <div class="form-group">
         <label for="title">Email</label>
-        <input type="text" disabled class="form-control" id="title"
+        <input
+          type="text"
+          disabled
+          class="form-control"
+          id="title"
           v-model="currentCaptain.email"
         />
       </div>
       <div class="form-group">
         <label for="title">Pais</label>
-        <input type="text" class="form-control" id="title"
+        <input
+          type="text"
+          class="form-control"
+          id="title"
           v-model="currentCaptain.country"
         />
       </div>
       <div class="form-group">
         <label for="title">Estado</label>
-        <input type="text" class="form-control" id="title"
+        <input
+          type="text"
+          class="form-control"
+          id="title"
           v-model="currentCaptain.state"
         />
       </div>
@@ -37,7 +51,7 @@
   </div>
   <div v-else>
     <br />
-    <p> Selecciona un Capitán. </p>
+    <p>Selecciona un Capitán.</p>
   </div>
 </template>
 <script>
@@ -47,44 +61,44 @@ export default {
   data() {
     return {
       currentCaptain: null,
-      message: ''
+      message: "",
     };
   },
   methods: {
     getCaptain(id) {
       CaptainService.get(id)
-        .then(response => {
+        .then((response) => {
           this.currentCaptain = response.data;
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
     },
     deleteCaptain() {
       CaptainService.delete(this.currentCaptain.id)
-      .then(response => {
-        console.log(response.data);
-        this.$router.push({ name: "captains" });
-      })
-      .catch(e => {
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push({ name: "captains" });
+        })
+        .catch((e) => {
           console.log(e);
-      });
+        });
     },
     updateCaptain() {
       CaptainService.update(this.currentCaptain.id, this.currentCaptain)
-        .then(response => {
+        .then((response) => {
           console.log(response.data);
-          this.message = 'Se actualizó correctamente';
+          this.message = "Se actualizó correctamente";
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
-    }
+    },
   },
   mounted() {
-    this.message = '';
+    this.message = "";
     this.getCaptain(this.$route.params.id);
-  }
+  },
 };
 </script>
 
