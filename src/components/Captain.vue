@@ -48,6 +48,9 @@
       Actualizar
     </button>
     <p>{{ message }}</p>
+    <div v-if="error" class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
   </div>
   <div v-else>
     <br />
@@ -62,6 +65,7 @@ export default {
     return {
       currentCaptain: null,
       message: "",
+      error: "",
     };
   },
   methods: {
@@ -71,7 +75,7 @@ export default {
           this.currentCaptain = response.data;
         })
         .catch((e) => {
-          console.log(e);
+          this.error = e.response.data.message;
         });
     },
     deleteCaptain() {
@@ -81,7 +85,7 @@ export default {
           this.$router.push({ name: "captains" });
         })
         .catch((e) => {
-          console.log(e);
+          this.error = e.response.data.message;
         });
     },
     updateCaptain() {
@@ -91,12 +95,13 @@ export default {
           this.message = "Se actualizó correctamente";
         })
         .catch((e) => {
-          console.log(e);
+          this.error = e.response.data.message;
         });
     },
   },
   mounted() {
     this.message = "";
+    this.error = "";
     this.getCaptain(this.$route.params.id);
   },
 };
