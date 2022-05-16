@@ -32,6 +32,22 @@ const routes = [
     name: "add-companie",
     component: () => import("./components/AddCompanie"),
   },
+  {
+    path: "/",
+    alias: "/boats",
+    name: "boats",
+    component: () => import("./components/BoatsList"),
+  },
+  {
+    path: "/boats/:id",
+    name: "boat-details",
+    component: () => import("./components/Boat"),
+  },
+  {
+    path: "/add-boat",
+    name: "add-boat",
+    component: () => import("./components/AddBoat"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
