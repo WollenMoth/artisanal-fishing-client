@@ -1,7 +1,7 @@
 <template>
   <div class="list row">
     <div class="col-md-6">
-      <h4>Botes Registrados</h4>
+      <h4>Embarcaciones Registradas</h4>
       <ul class="list-group">
         <li
           class="list-group-item"
@@ -40,9 +40,9 @@
       </div>
       <div v-else>
         <br />
-        <p>Selecciona un bote.</p>
+        <p>Selecciona una embarcación.</p>
         <router-link to="/add-boat" class="btn btn-info"
-          >Agregar bote</router-link
+          >Agregar embarcación</router-link
         >
       </div>
     </div>

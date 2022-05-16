@@ -1,7 +1,7 @@
 <template>
   <div class="submit-form">
     <div v-if="!submitted">
-      <h3>Nuevo Barco</h3>
+      <h3>Nuevo Embarcación</h3>
       <div class="form-group">
         <label for="name">Nombre</label>
         <input
@@ -81,7 +81,7 @@
       <button @click="saveBoat" class="btn btn-success">Agregar</button>
     </div>
     <div v-else>
-      <h4>Bote creado exitosamente.</h4>
+      <h4>Embarcación creada exitosamente.</h4>
       <button class="btn btn-success" @click="newBoat">Add</button>
     </div>
   </div>
