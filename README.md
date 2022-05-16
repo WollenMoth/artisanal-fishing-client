@@ -11,7 +11,10 @@ Esto se puede realizar gracias a la [Artisanal Fishing API](https://github.com/W
 
 ## Instalación
 1. Clonar repositorio
-2. Dirigirse al directorio `artisanal-fishing-client` y ejecutar el comando `npm install`<br>
+2. Dirigirse al directorio `artisanal-fishing-client`
+3. Ejecutar el comando `npm install` para instalar dependencias
+4. Ejecutar el comando `npm run serve` para correr la aplicación
+5. Ejecutar el comando `npm run lint` para ejecutar el linter<br>
 
 ## Capitanes
 Para visualizar la información, solo basta con dar clic en el nombre del capitán, la información aparecerá en el lado derecho. 
