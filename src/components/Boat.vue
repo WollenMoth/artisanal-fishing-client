@@ -1,5 +1,5 @@
 <template>
-  <h4>Capitán</h4>
+  <h4>Embarcación</h4>
   <div
     v-if="currentBoat && currentCompanie && currentCaptain"
     class="edit-form"
