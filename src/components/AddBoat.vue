@@ -47,6 +47,7 @@
         />
       </div>
       <div class="form-group">
+        <label>Capitán</label>
         <select
           v-model="boat.idCaptain"
           class="form-control"
@@ -63,6 +64,7 @@
         </select>
       </div>
       <div class="form-group">
+        <label>Empresa</label>
         <select
           v-model="boat.idCompany"
           class="form-control"
