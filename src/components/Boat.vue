@@ -1,9 +1,6 @@
 <template>
   <h4>Embarcación</h4>
-  <div
-    v-if="currentBoat && currentCompany && currentCaptain"
-    class="edit-form"
-  >
+  <div v-if="currentBoat && currentCompany && currentCaptain" class="edit-form">
     <form>
       <div class="form-group">
         <label for="title">Nombre de la embarcación</label>
@@ -80,19 +77,19 @@
   </div>
 </template>
 <script>
-import BoatService from '../services/BoatService.js';
-import CaptainService from '../services/CaptainService.js';
-import CompanyService from '../services/CompanyService.js';
+import BoatService from "../services/BoatService.js";
+import CaptainService from "../services/CaptainService.js";
+import CompanyService from "../services/CompanyService.js";
 
 export default {
-  name: 'boat',
+  name: "boat",
   data() {
     return {
       currentBoat: null,
       currentCaptain: null,
       currentCompany: null,
-      message: '',
-      error: '',
+      message: "",
+      error: "",
     };
   },
   methods: {
@@ -100,6 +97,8 @@ export default {
       BoatService.get(id)
         .then((response) => {
           this.currentBoat = response.data;
+          this.getCaptain(response.data.idCaptain);
+          this.getCompany(response.data.idCompany);
         })
         .catch((e) => {
           this.error = e.response.data.message;
@@ -109,7 +108,7 @@ export default {
       BoatService.delete(this.currentBoat.id)
         .then((response) => {
           console.log(response.data);
-          this.$router.push({ name: 'boats' });
+          this.$router.push({ name: "boats" });
         })
         .catch((e) => {
           this.error = e.response.data.message;
@@ -119,7 +118,7 @@ export default {
       BoatService.update(this.currentBoat.id, this.currentBoat)
         .then((response) => {
           console.log(response.data);
-          this.message = 'Se actualizó correctamente';
+          this.message = "Se actualizó correctamente";
         })
         .catch((e) => {
           this.error = e.response.data.message;
@@ -145,11 +144,9 @@ export default {
     },
   },
   mounted() {
-    this.message = '';
-    this.error = '';
+    this.message = "";
+    this.error = "";
     this.getBoat(this.$route.params.id);
-    this.getCaptain(this.$route.params.id);
-    this.getCompany(this.$route.params.id);
   },
 };
 </script>
