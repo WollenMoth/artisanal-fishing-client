@@ -99,8 +99,8 @@ export default {
     setActiveBoat(boat, index) {
       this.currentBoat = boat;
       this.currentIndex = boat ? index : -1;
-      this.getCaptain(boat.id);
-      this.getCompanie(boat.id);
+      this.getCaptain(boat.idCaptain);
+      this.getCompanie(boat.idCompany);
     },
   },
   mounted() {
