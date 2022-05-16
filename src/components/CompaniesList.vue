@@ -6,23 +6,23 @@
         <li
           class="list-group-item"
           :class="{ active: index == currentIndex }"
-          v-for="(companie, index) in companies"
+          v-for="(company, index) in companies"
           :key="index"
-          @click="setActiveCompanie(companie, index)"
+          @click="setActiveCompany(company, index)"
         >
-          {{ companie.name }}
+          {{ company.name }}
         </li>
       </ul>
     </div>
     <div class="col-md-6">
-      <div v-if="currentCompanie">
+      <div v-if="currentCompany">
         <h4>Compañia</h4>
         <div>
           <br /><label><strong>Nombre:</strong></label>
-          {{ currentCompanie.name }}
+          {{ currentCompany.name }}
         </div>
         <router-link
-          :to="'/companies/' + currentCompanie.id"
+          :to="'/companies/' + currentCompany.id"
           class="btn btn-info"
         >
           Editar</router-link
@@ -31,7 +31,7 @@
       <div v-else>
         <br />
         <p>Selecciona una Compañia.</p>
-        <router-link to="/add-companie" class="btn btn-info"
+        <router-link to="/add-company" class="btn btn-info"
           >Agregar Compañia</router-link
         >
       </div>
@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import CompanieService from "../services/CompanieService";
+import CompanyService from "../services/CompanyService";
 
 export default {
   name: "companies-list",
@@ -48,15 +48,15 @@ export default {
       tutorials: [],
       companies: [],
       currentTutorial: null,
-      currentCompanie: null,
+      currentCompany: null,
       currentIndex: -1,
       title: "",
-      companieId: "",
+      companyId: "",
     };
   },
   methods: {
     getAllCompanies() {
-      CompanieService.getAll()
+      CompanyService.getAll()
         .then((response) => {
           this.companies = response.data;
         })
@@ -64,9 +64,9 @@ export default {
           console.log(e);
         });
     },
-    setActiveCompanie(companie, index) {
-      this.currentCompanie = companie;
-      this.currentIndex = companie ? index : -1;
+    setActiveCompany(company, index) {
+      this.currentCompany = company;
+      this.currentIndex = company ? index : -1;
     },
   },
   mounted() {

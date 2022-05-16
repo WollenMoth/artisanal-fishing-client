@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <div v-if="currentBoat && currentCaptain && currentCompanie">
+      <div v-if="currentBoat && currentCaptain && currentCompany">
         <h4>Embarcación</h4>
         <div>
           <br />
@@ -24,7 +24,7 @@
           <label><strong>Nombre de la embarcación:</strong></label>
           {{ currentBoat.name }}<br />
           <label><strong>Nombre de la compañia:</strong></label>
-          {{ currentCompanie.name }}<br />
+          {{ currentCompany.name }}<br />
           <label><strong>Fecha de pesca:</strong></label>
           {{ currentBoat.fishingDate }}<br />
           <label><strong>Locación:</strong></label>
@@ -49,12 +49,12 @@
   </div>
 </template>
 <script>
-import BoatService from '../services/BoatService.js';
-import CaptainService from '../services/CaptainService.js';
-import CompanieService from '../services/CompanieService.js';
+import BoatService from "../services/BoatService.js";
+import CaptainService from "../services/CaptainService.js";
+import CompanyService from "../services/CompanyService.js";
 
 export default {
-  name: 'boats-List',
+  name: "boats-List",
   data() {
     return {
       tutorials: [],
@@ -62,10 +62,10 @@ export default {
       currentTutorial: null,
       currentBoat: null,
       currentCaptain: null,
-      currentCompanie: null,
+      currentCompany: null,
       currentIndex: -1,
-      title: '',
-      BoatId: '',
+      title: "",
+      BoatId: "",
     };
   },
   methods: {
@@ -87,10 +87,10 @@ export default {
           this.error = e.response.data.message;
         });
     },
-    getCompanie(id) {
-      CompanieService.get(id)
+    getCompany(id) {
+      CompanyService.get(id)
         .then((response) => {
-          this.currentCompanie = response.data;
+          this.currentCompany = response.data;
         })
         .catch((e) => {
           this.error = e.response.data.message;
@@ -100,7 +100,7 @@ export default {
       this.currentBoat = boat;
       this.currentIndex = boat ? index : -1;
       this.getCaptain(boat.idCaptain);
-      this.getCompanie(boat.idCompany);
+      this.getCompany(boat.idCompany);
     },
   },
   mounted() {

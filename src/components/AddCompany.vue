@@ -9,26 +9,26 @@
           class="form-control"
           id="title"
           required
-          v-model="companie.name"
+          v-model="company.name"
           name="title"
         />
       </div>
-      <button @click="saveCompanie" class="btn btn-success">Agregar</button>
+      <button @click="saveCompany" class="btn btn-success">Agregar</button>
     </div>
     <div v-else>
       <h4>Compañia creada exitosamente.</h4>
-      <button class="btn btn-success" @click="newCompanie">Add</button>
+      <button class="btn btn-success" @click="newCompany">Add</button>
     </div>
   </div>
 </template>
 
 <script>
-import CompanieService from "../services/CompanieService";
+import CompanyService from "../services/CompanyService";
 export default {
-  name: "add-companie",
+  name: "add-company",
   data() {
     return {
-      companie: {
+      company: {
         id: null,
         name: "",
       },
@@ -36,22 +36,22 @@ export default {
     };
   },
   methods: {
-    saveCompanie() {
+    saveCompany() {
       var data = {
-        name: this.companie.name,
+        name: this.company.name,
       };
-      CompanieService.create(data)
+      CompanyService.create(data)
         .then((response) => {
-          this.companie.id = response.data.id;
+          this.company.id = response.data.id;
           this.submitted = true;
         })
         .catch((e) => {
           console.log(e);
         });
     },
-    newCompanie() {
+    newCompany() {
       this.submitted = false;
-      this.companie = {};
+      this.company = {};
     },
   },
 };

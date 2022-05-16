@@ -90,7 +90,7 @@
 <script>
 import BoatService from "../services/BoatService";
 import CaptainService from "../services/CaptainService";
-import CompanieService from "../services/CompanieService";
+import CompanyService from "../services/CompanyService";
 export default {
   name: "add-boat",
   data() {
@@ -142,7 +142,7 @@ export default {
         });
     },
     getCompanies() {
-      CompanieService.getAll()
+      CompanyService.getAll()
         .then((response) => {
           this.companies = response.data;
         })

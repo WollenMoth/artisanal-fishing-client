@@ -24,13 +24,13 @@ const routes = [
   },
   {
     path: "/companies/:id",
-    name: "companie-details",
-    component: () => import("./components/Companie"),
+    name: "company-details",
+    component: () => import("./components/Company"),
   },
   {
-    path: "/add-companie",
-    name: "add-companie",
-    component: () => import("./components/AddCompanie"),
+    path: "/add-company",
+    name: "add-company",
+    component: () => import("./components/AddCompany"),
   },
   {
     path: "/",

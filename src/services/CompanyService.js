@@ -1,6 +1,6 @@
 import http from "../http-common";
 
-class CompanieService {
+class CompanyService {
   getAll() {
     return http.get("/api/v1/companies");
   }
@@ -18,4 +18,4 @@ class CompanieService {
   }
 }
 
-export default new CompanieService();
+export default new CompanyService();

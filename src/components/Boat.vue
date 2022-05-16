@@ -1,7 +1,7 @@
 <template>
   <h4>Embarcación</h4>
   <div
-    v-if="currentBoat && currentCompanie && currentCaptain"
+    v-if="currentBoat && currentCompany && currentCaptain"
     class="edit-form"
   >
     <form>
@@ -31,7 +31,7 @@
           disabled
           class="form-control"
           id="title"
-          v-model="currentCompanie.name"
+          v-model="currentCompany.name"
         />
       </div>
       <div class="form-group">
@@ -82,7 +82,7 @@
 <script>
 import BoatService from '../services/BoatService.js';
 import CaptainService from '../services/CaptainService.js';
-import CompanieService from '../services/CompanieService.js';
+import CompanyService from '../services/CompanyService.js';
 
 export default {
   name: 'boat',
@@ -90,7 +90,7 @@ export default {
     return {
       currentBoat: null,
       currentCaptain: null,
-      currentCompanie: null,
+      currentCompany: null,
       message: '',
       error: '',
     };
@@ -134,10 +134,10 @@ export default {
           this.error = e.response.data.message;
         });
     },
-    getCompanie(id) {
-      CompanieService.get(id)
+    getCompany(id) {
+      CompanyService.get(id)
         .then((response) => {
-          this.currentCompanie = response.data;
+          this.currentCompany = response.data;
         })
         .catch((e) => {
           this.error = e.response.data.message;
@@ -149,7 +149,7 @@ export default {
     this.error = '';
     this.getBoat(this.$route.params.id);
     this.getCaptain(this.$route.params.id);
-    this.getCompanie(this.$route.params.id);
+    this.getCompany(this.$route.params.id);
   },
 };
 </script>
