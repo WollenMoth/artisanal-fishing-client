@@ -1,6 +1,6 @@
 import axios from "axios";
 export default axios.create({
-  baseURL: "https://apiartisanalfishing.azurewebsites.net/",
+  baseURL: "https://artisanal-fishing-api.herokuapp.com/",
   headers: {
     "Content-type": "application/json",
   },
