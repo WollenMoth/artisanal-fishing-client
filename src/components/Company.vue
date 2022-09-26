@@ -1,6 +1,6 @@
 <template>
   <h4>Compañias</h4>
-  <div v-if="currentCompanie" class="edit-form">
+  <div v-if="currentCompany" class="edit-form">
     <form>
       <div class="form-group">
         <label for="title">Nombre</label>
@@ -8,14 +8,14 @@
           type="text"
           class="form-control"
           id="title"
-          v-model="currentCompanie.name"
+          v-model="currentCompany.name"
         />
       </div>
     </form>
-    <button class="btn btn-danger mr-2" @click="deleteCompanie">
+    <button class="btn btn-danger mr-2" @click="deleteCompany">
       Eliminar Compañia
     </button>
-    <button type="submit" class="btn btn-info mr-2" @click="updateCompanie">
+    <button type="submit" class="btn btn-info mr-2" @click="updateCompany">
       Actualizar
     </button>
     <div v-if="message" class="alert alert-success mt-3" role="alert">
@@ -31,28 +31,28 @@
   </div>
 </template>
 <script>
-import CompanieService from "../services/CompanieService";
+import CompanyService from "../services/CompanyService";
 export default {
-  name: "companie",
+  name: "company",
   data() {
     return {
-      currentCompanie: null,
+      currentCompany: null,
       message: "",
       error: "",
     };
   },
   methods: {
-    getCompanie(id) {
-      CompanieService.get(id)
+    getCompany(id) {
+      CompanyService.get(id)
         .then((response) => {
-          this.currentCompanie = response.data;
+          this.currentCompany = response.data;
         })
         .catch((e) => {
           this.error = e.response.data.message;
         });
     },
-    deleteCompanie() {
-      CompanieService.delete(this.currentCompanie.id)
+    deleteCompany() {
+      CompanyService.delete(this.currentCompany.id)
         .then((response) => {
           console.log(response.data);
           this.$router.push({ name: "companies" });
@@ -61,8 +61,8 @@ export default {
           this.error = e.response.data.message;
         });
     },
-    updateCompanie() {
-      CompanieService.update(this.currentCompanie.id, this.currentCompanie)
+    updateCompany() {
+      CompanyService.update(this.currentCompany.id, this.currentCompany)
         .then((response) => {
           console.log(response.data);
           this.message = "Se actualizó correctamente";
@@ -75,7 +75,7 @@ export default {
   mounted() {
     this.message = "";
     this.error = "";
-    this.getCompanie(this.$route.params.id);
+    this.getCompany(this.$route.params.id);
   },
 };
 </script>

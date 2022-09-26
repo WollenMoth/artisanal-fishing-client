@@ -24,13 +24,29 @@ const routes = [
   },
   {
     path: "/companies/:id",
-    name: "companie-details",
-    component: () => import("./components/Companie"),
+    name: "company-details",
+    component: () => import("./components/Company"),
   },
   {
-    path: "/add-companie",
-    name: "add-companie",
-    component: () => import("./components/AddCompanie"),
+    path: "/add-company",
+    name: "add-company",
+    component: () => import("./components/AddCompany"),
+  },
+  {
+    path: "/",
+    alias: "/boats",
+    name: "boats",
+    component: () => import("./components/BoatsList"),
+  },
+  {
+    path: "/boats/:id",
+    name: "boat-details",
+    component: () => import("./components/Boat"),
+  },
+  {
+    path: "/add-boat",
+    name: "add-boat",
+    component: () => import("./components/AddBoat"),
   },
 ];
 const router = createRouter({
