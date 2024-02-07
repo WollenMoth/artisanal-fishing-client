@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
@@ -9,7 +9,7 @@ const routes = [
   {
     path: "/captains/:id",
     name: "captain-details",
-    component: () => import("./components/Captain"),
+    component: () => import("./components/CaptainDetails"),
   },
   {
     path: "/add-captain",
@@ -25,7 +25,7 @@ const routes = [
   {
     path: "/companies/:id",
     name: "company-details",
-    component: () => import("./components/Company"),
+    component: () => import("./components/CompanyDetails"),
   },
   {
     path: "/add-company",
@@ -41,7 +41,7 @@ const routes = [
   {
     path: "/boats/:id",
     name: "boat-details",
-    component: () => import("./components/Boat"),
+    component: () => import("./components/BoatDetails"),
   },
   {
     path: "/add-boat",

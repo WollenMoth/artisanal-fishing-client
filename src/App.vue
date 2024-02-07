@@ -5,7 +5,7 @@
         <img src="./assets/LogoApp.png" alt="" width="250" />
       </router-link>
 
-      <div class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <router-link to="/captains" class="nav-link">Capitanes</router-link>
         </li>
@@ -15,7 +15,7 @@
         <li class="nav-item">
           <router-link to="/boats" class="nav-link">Embarcaciones</router-link>
         </li>
-      </div>
+      </ul>
     </nav>
     <div class="container mt-3">
       <router-view />

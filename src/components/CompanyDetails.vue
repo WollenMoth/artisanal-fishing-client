@@ -33,7 +33,7 @@
 <script>
 import CompanyService from "../services/CompanyService";
 export default {
-  name: "company",
+  name: "company-details",
   data() {
     return {
       currentCompany: null,

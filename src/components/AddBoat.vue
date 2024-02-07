@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     saveBoat() {
-      var data = {
+      const data = {
         name: this.boat.name,
         fishingLocation: this.boat.fishingLocation,
         capture: this.boat.capture,
