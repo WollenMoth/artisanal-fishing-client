@@ -62,7 +62,7 @@
 <script>
 import CaptainService from "../services/CaptainService";
 export default {
-  name: "captain",
+  name: "captain-details",
   data() {
     return {
       currentCaptain: null,

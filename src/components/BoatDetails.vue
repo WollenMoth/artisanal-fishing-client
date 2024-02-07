@@ -82,7 +82,7 @@ import CaptainService from "../services/CaptainService.js";
 import CompanyService from "../services/CompanyService.js";
 
 export default {
-  name: "boat",
+  name: "boat-details",
   data() {
     return {
       currentBoat: null,
